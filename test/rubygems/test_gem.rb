@@ -195,9 +195,8 @@ class TestGem < Gem::TestCase
       'gems/foo-1/bin/foo.cmd' => prog_mode,
       'gems/foo-1/data/foo.txt' => data_mode,
     }
-    # below is for intermittent errors on Appveyor & Travis 2019-01,
-    # see https://github.com/rubygems/rubygems/pull/2568
-    sleep 0.2
+    # add Windows script
+    expected["bin/#{prog_name}.bat"] = prog_mode if win_platform?
     result = {}
     Dir.chdir @gemhome do
       expected.each_key do |n|
