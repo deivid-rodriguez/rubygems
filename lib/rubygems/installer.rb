@@ -471,6 +471,7 @@ class Gem::Installer
       script_path = File.join bindir, File.basename(script_name)
       File.open script_path, 'w' do |file|
         file.puts windows_stub_script(bindir, filename)
+        file.chmod(options[:prog_mode] || 0755)
       end
 
       verbose script_path
