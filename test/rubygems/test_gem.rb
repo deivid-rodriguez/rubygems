@@ -196,7 +196,7 @@ class TestGem < Gem::TestCase
       'gems/foo-1/data/foo.txt' => data_mode,
     }
     # add Windows script
-    expected["bin/#{prog_name}.bat"] = prog_mode if win_platform?
+    expected["bin/#{prog_name}.bat"] = mask.to_s(8) if win_platform?
     result = {}
     Dir.chdir @gemhome do
       expected.each_key do |n|
