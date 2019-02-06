@@ -4,6 +4,7 @@ branches:
   - master
   - auto
   - /[\d.]+/
+  - last-try-un-stable
 skip_tags: true
 clone_depth: 10
 
